@@ -16,6 +16,6 @@ foreach (var item in foodItems)
     calorieCount = 0;
 }
 
-Console.WriteLine(sortedCalories.Max());
+Console.WriteLine(sortedCalories.Max);
 Console.WriteLine(sortedCalories.Take(3).Sum());
 Console.ReadLine();
