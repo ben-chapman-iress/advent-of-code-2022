@@ -84,7 +84,7 @@ const getRucksackPriority = (rucksack) => {
   let priority = getItemPriority(commonItem);
 
   return priority;
-}
+};
 
 const getGroupPriority = (group) => {
   if (group.length === 0) {
