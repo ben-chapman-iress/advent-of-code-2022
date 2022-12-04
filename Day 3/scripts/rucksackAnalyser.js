@@ -42,7 +42,7 @@ file.addEventListener('change', function () {
 const processFileContents = (fileContents) => {
   let rucksacks = fileContents.split('\n'); // \n represents LF (Unix) line breaks
   let part1Total = getPart1Total(rucksacks);
-  let part2Total = calculatePart2Total(rucksacks);
+  let part2Total = getPart2Total(rucksacks);
   
   document.getElementById('part1').innerText = part1Total;
   document.getElementById('part2').innerText = part2Total;
@@ -56,7 +56,7 @@ const getPart1Total = (rucksacks) => {
   return total;
 };
 
-const calculatePart2Total = (rucksacks) => {
+const getPart2Total = (rucksacks) => {
   let total = 0;
   let group = [];
 
