@@ -80,7 +80,7 @@ const getRucksackPriority = (rucksack) => {
   let compartmentLength = rucksack.length / 2;
   let firstCompartment = rucksack.slice(0, compartmentLength);
   let secondCompartment = rucksack.slice(compartmentLength);
-  let commonItem = getCommonItem(firstCompartment, secondCompartment);
+  let commonItem = getCommonItem([firstCompartment, secondCompartment]);
   let priority = getItemPriority(commonItem);
 
   return priority;
@@ -91,24 +91,18 @@ const getGroupPriority = (group) => {
     return 0;
   }
 
-  let commonItem = getCommonItems(...group);
+  let commonItem = getCommonItem(group);
   let priority = getItemPriority(commonItem);
 
   return priority;
-}
-
-const getCommonItem = (firstString, secondString) => {
-  let firstStringChars = firstString.split('');
-  let duplicateCharacters = firstStringChars.filter(characterFromFirstString => secondString.includes(characterFromFirstString));
-
-  return duplicateCharacters[0] ?? "";
 };
 
-const getCommonItems = (firstString, secondString, thirdString) => {
-  let firstStringChars = firstString.split('');
+const getCommonItem = (listOfStrings) => {
+  let firstStringChars = listOfStrings[0].split(''); // Get all characters from the first string
+  listOfStrings.shift(); // Remove the first string from the list, as we only need to compare against the remaining strings  
 
   let duplicateCharacters = firstStringChars.filter(characterFromFirstString =>
-    secondString.includes(characterFromFirstString) && thirdString.includes(characterFromFirstString));
+    listOfStrings.every(string => string.includes(characterFromFirstString)));
 
   return duplicateCharacters[0] ?? "";
 };
