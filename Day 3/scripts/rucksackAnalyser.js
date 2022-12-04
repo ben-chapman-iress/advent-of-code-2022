@@ -72,7 +72,7 @@ const getPart2Total = (rucksacks) => {
   return total;
 };
 
-function getRucksackPriority(rucksack) {
+const getRucksackPriority = (rucksack) => {
   if (rucksack.length === 0) {
     return 0;
   }
@@ -86,7 +86,7 @@ function getRucksackPriority(rucksack) {
   return priority;
 }
 
-function getGroupPriority(group) {
+const getGroupPriority = (group) => {
   if (group.length === 0) {
     return 0;
   }
